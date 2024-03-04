@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Big Picture tool</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/155fa85c2a.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- For tabs Alpine & Tailwind -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: {
+						inter: ['Inter', 'sans-serif'],
+						caveat: ['Caveat', 'cursive'],
+					},
+				},
+			},
+		};
+	</script>
+</head>
+<body>
+	<div class="container mx-auto main-container">
+		
+		<div class="flex flex-col md:flex-row">
+			<div class="w-full md:w-3/4">
+				<img src="./img/eu.png" alt="EU" id="eu-logo">
+				<h1 class="responsive-h1-container">
+					What will be your next EU destination to work?
+				</h1>
+
+				<div class="text-box">
+					<p class="text-paragraph"> 
+						This interactive tool is designed to help fresh graduates strategically select their next move 
+						in the European job market. By presenting different factors such as quality of life, average salaries and rent 
+						prices in an accessible and user-friendly format, users can compare, weight, and filter different European 
+						countries at a glance. </p>
+					<p class="text-paragraph">
+						The visualization empowers users to make well-informed decisions on where they might want to relocate for work 
+						based on a holistic set of data points that matter most to them. Data is currently being retrieved from 
+						<a href="https://www.numbeo.com" style="color: blue;" target="_blank">Numbeo</a> (the world's largest cost 
+						of living database), <a href="https://apps.who.int/nha/database" style="color: blue;" target="_blank">the Global Health Expenditures</a> 
+						database (in collaboration with countries using official statistics), and 
+						<a href="https://insights.stackoverflow.com/survey" style="color: blue;" target="_blank">StackOverflow surveys</a> 
+						regarding IT jobs in Europe.</p>
+				</div>
+				<div id="countries-grid" class="responsive-svg-container"></div>
+				<hr class="horizontal-divider"/>
+				<div id="countries-grid-grey" class="responsive-svg-container"></div>
+				<div id="tooltip"></div>
+			</div>
+			<div class="w-full md:w-1/4">
+				<div class="filter-container">
+					<div class="bg-slate-100  rounded-2xl p-4 my-4">
+						<div class="filter-header">
+							<img src="./img/equalizer.png" alt="Filter" class="filter-icon">
+							<span class="filter-text">Weights</span>
+							<div class="info-icon">
+								<img src="./img/info.png" alt="Info">
+								<span class="tooltip-text">After changing the weights of one of the 5 indicators, the order of the countries that most meet your interests will change accordingly.</span>
+							</div>
+						</div>
+						<br>
+						<div class="weights-slider-container">
+							<!-- https://dribbble.com/search/mini-progress-bar -->
+							<div class="indicator">
+								<label for="quality_of_life_index">Quality of Life</label>
+								<div class="segmented-bar" id="quality_of_life_index">
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+								</div>
+							</div>
+							<div class="indicator">
+								<label for="purchasing_power_incl_rent_index">Purchasing Power</label>
+								<div class="segmented-bar" id="purchasing_power_incl_rent_index">
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+								</div>
+							</div>
+							<div class="indicator">
+								<label for="rent_index">Rent Price</label>
+								<div class="segmented-bar" id="rent_index">
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+								</div>
+							</div>
+							<div class="indicator">
+								<label for="health_care_index">Health Care</label>
+								<div class="segmented-bar" id="health_care_index">
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+								</div>
+							</div>
+							<div class="indicator">
+								<label for="safety_index">Safety</label>
+								<div class="segmented-bar" id="safety_index">
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+									<div class="bar-segment"></div>
+								</div>
+							</div>
+						</div>
+						<div class="button-container">
+							<button id="reset-weights-btn" class="reset-filter-button">Reset weights</button>
+						</div>
+					</div>
+					<!-- <div id="filter-box" class=""> -->
+					<div id="" class="bg-slate-100 rounded-2xl p-4">
+						<div class="filter-header mb-4">
+							<img src="./img/filter.png" alt="Filter" class="filter-icon">
+							<span class="filter-text">Filter</span>
+							<div class="info-icon">
+								<img src="./img/info.png" alt="Info">
+								<span class="tooltip-text">Use the hisotgram widgets to change the ranges of salary and rent prices. After applying the filter, the countries that don't meet your expectations will be marked in grey.</span>
+							</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<!-- Salary histogram -->
+							<div>
+								<div class="text-sm font-medium text-center text-blue-500 mb-6">Average monthly net salary (after tax)</div>
+								<div id="avgNetSalaryHistogram"></div>
+							
+								<!-- Values legend for min & max -->
+								<ol class="mt-2 flex justify-between w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+									<li class="flex md:w-full items-center text-blue-500  sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-500 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+											<span id="minSalaryLabel">0</span> €
+										</span>
+									</li>
+									<li class="flex items-center text-blue-500">
+										<span id="maxSalaryLabel">0</span> €
+									</li>
+								</ol>
+							</div>
+
+							<!-- Rent in city histogram -->
+							<div class="flex flex-col items-center">
+								<div class="text-sm font-medium text-center text-blue-500 mt-6 mb-6">Average monthly rent in city center (1 bedroom)</div>
+								<div id="rentInCityHistogram"></div>
+							
+								<!-- Values legend for min & max -->
+								<ol class="mt-2 flex justify-between w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+									<li class="flex md:w-full items-center text-blue-500  sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-500 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+											<span id="minRentInCityLabel">0</span> €
+										</span>
+									</li>
+									<li class="flex items-center text-blue-500">
+										<span id="maxRentInCityLabel">0</span> €
+									</li>
+								</ol>
+							</div>
+							
+							<!-- Rent outside city histogram -->
+							<div class="flex flex-col items-center">
+								<div class="text-sm font-medium text-center text-blue-500 mt-6 mb-6">Average monthly rent outside city center<br> (1 bedroom)</div>
+								<div id="rentOutsideCityHistogram"></div>
+							
+								<!-- Values legend for min & max -->
+								<ol class="mt-2 flex justify-between w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+									<li class="flex md:w-full items-center text-blue-500  sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-500 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+											<span id="minRentOutsideCityLabel">0</span> €
+										</span>
+									</li>
+									<li class="flex items-center text-blue-500">
+										<span id="maxRentOutsideCityLabel">0</span> €
+									</li>
+								</ol>
+							</div>
+							
+						</div>
+						<div class="button-container">
+							<button id="reset-filter-btn" class="reset-filter-button">Reset filters</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="svg-placeholder" class="svg-container">
+				<div class="svg-content">
+					<!-- Embedded page -->
+					<div x-data="{ activeTab: 2 }">
+
+						
+						<!-- Tab panels -->
+						<div class="max-w-full mx-h-full">
+							<div class="relative flex flex-col">
+
+								<!-- Panel #1 -->
+								<article id="article-1" class="w-full" style="display: none;">
+										<div class="w-[70%] mx-auto">
+											<h2 class="jobs-title text-center">Average yearly compensation for IT roles in Europe [2023]</h2>
+											<!-- Input Role 1 -->
+																						
+											<div class="flex items-center justify-between">
+												<div class="relative z-50 ml-64 my-4">
+													<button id="dropdownRoleOne" data-dropdown-toggle="dropdownRoleOneDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" class="relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Role 1<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+														<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+														</svg>
+													</button>
+													
+													<!-- Dropdown menu -->
+													<div id="dropdownRoleOneDelay" class="absolute z-100 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+														<ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRoleOne">
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+														</li>
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+														</li>
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+														</li>
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+														</li>
+														</ul>
+													</div>
+												</div>
+	
+												<div class="relative z-50 mr-64">
+													<button id="dropdownTwoOne" data-dropdown-toggle="dropdownRoleTwoDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" class="relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Role 2<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+														<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+														</svg>
+													</button>
+													
+													<!-- Dropdown menu -->
+													<div id="dropdownRoleTwoDelay" class="absolute z-100 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+														<ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRoleTwo">
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+														</li>
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+														</li>
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+														</li>
+														<li>
+															<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+														</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											  
+											
+											<div id="multi-bar-chart" class="relative z-20  mx-auto"></div>
+									</div>
+								</article>
+
+								<!-- Panel #2 -->
+								<article id="article-2" class="w-full" >
+									<div class="w-[70%] mx-auto">
+										<h2 class="jobs-title text-center">Mapping Career Paths: From Country of Origin to Salary Ranges</h2>
+										<div id="sankey-compensation-chart" class="relative z-20  mx-auto"></div>
+									</div>
+									<!-- Legend stepper -->
+									<div class="flex justify-center items-center">
+										<ol class="flex items-center p-3 space-x-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
+											<li class="flex items-center text-blue-500">
+												<span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+													1
+												</span>
+												Countries
+												<svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+													<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+												</svg>
+											</li>
+											<li class="flex items-center text-blue-600 ">
+												<span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+													2
+												</span>
+												Employement Type
+												<svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+													<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+												</svg>
+											</li>
+											<li class="flex items-center text-blue-700 ">
+												<span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+													3
+												</span>
+												Education Level
+												<svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+													<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+												</svg>
+											</li>
+											<li class="flex items-center text-blue-800">
+												<span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+													4
+												</span>
+												Yearly Salary Range (€)
+											</li>
+										</ol>
+									</div>
+								</article>
+								
+								<!-- Panel #3 -->
+								<article id="article-3" class="w-full" >
+									<div id="Health" class="w-[70%] mx-auto">
+										<h2 class="jobs-title text-center">Sources of Health Insurance Coverage</h2>									
+										<div id="tooltip-stacked"></div>
+										<div id="stacked-bar-chart" class=""></div>
+										<!-- <div id="tooltip-stacked" style="position: absolute; opacity: 0; pointer-events: none; background-color: white; border: solid 1px #dcdcdc; padding: 5px; border-radius: 5px;"></div> -->
+									</div>
+								</article>	
+								
+								<!-- Panel #4 -->
+								<article id="article-4" class="w-full" >
+									<div id="Expenses" class="w-[70%] mx-auto">
+										<h2 class="jobs-title text-center">Prices of Several Goods and Services</h2>
+										<div id="tooltip-grouped"></div>
+										<div id="grouped-bar-chart" class="mx-auto"></div>
+										<div id="expenses-checkboxes" class="flex"></div>
+										<!-- <div id="tooltip-grouped" style="position: absolute; opacity: 0; pointer-events: none; background-color: white; border: solid 1px #dcdcdc; padding: 5px; border-radius: 5px;"></div> -->
+
+									</div>
+								</article>
+								<br>
+								<br>
+								<br>
+							</div>
+						</div>	
+						
+						
+						<!-- Buttons -->
+						<div class="fixed bottom-1 left-0 right-0 z-50">
+							<div class="flex justify-center">
+								<div class="max-[480px]:max-w-[180px] inline-flex flex-wrap justify-center bg-blue-500 rounded-[30px] ring-4  ring-blue-400/50 p-1 mb-4 min-[480px]:mb-12">
+						
+									<!-- <button
+										id="tab-1" data-scroll="#article-1"
+										class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+										:class="activeTab === 1 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+										@click="activeTab = 1" style="display: none;"
+									>Wages</button> -->
+									<button
+										id="tab-2" data-scroll="#article-2"
+										class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+										:class="activeTab === 2 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+										@click="activeTab = 2"
+									>Compensation</button>
+									<button
+										id="tab-3" data-scroll="#article-3"
+										class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+										:class="activeTab === 3 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+										@click="activeTab = 3"
+									>Healthcare</button>
+									<button
+										id="tab-4" data-scroll="#article-4"
+										class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+										:class="activeTab === 4 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+										@click="activeTab = 4"
+									>Expenditures</button>
+									
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<button id="close-svg-view" class="close-svg-button">
+					<i class="fas fa-times"></i>
+				</button>
+
+				  
+			</div>
+		</div>
+		
+		<div class="fab-container">
+			<input type="checkbox" id="fabToggle" class="fab-toggle" hidden />
+			<label for="fabToggle" class="fab-button">
+				<span class="fab-icon">
+					<i class="fas fa-code-compare"></i>
+				</span>
+				<span class="fab-text unselectable">Compare</span> 
+				<span class="plus-icon">
+					<i class="fas fa-plus"></i>
+				</span>
+			</label>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+	<script src="crosswidget.js"></script>
+	<script type="module" src="./jobs_compare/script.js"></script>
+	<script type="module" src="./sankey-compensation/sankey.js"></script>
+	<script src="./site_script.js"></script>
+	<script src="./script.js"></script>
+	<script>
+	</script>
+</body>
+</html>

@@ -1,0 +1,706 @@
+.responsive-h1-container {
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  margin-left: 100px;
+  width: 100%;
+  max-width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.responsive-svg-container {
+  margin-right: auto;
+  margin-left: 60px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country {
+  opacity: 0;
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: start;
+  padding-top: 10px;
+  width: 15%; 
+  height: 150px;
+  margin: 2%; 
+  text-align: center; 
+  box-sizing: border-box;
+  font-size: 0.8em;
+  animation: spreadFlags 0.5s ease-out forwards;
+  position: relative;
+  background-size: 30px 30px; /* Cover the entire div */
+  background-position: 5px 5px; /* Adjust the left margin */
+  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
+}
+
+.country:hover {
+  cursor: pointer; 
+}
+
+.country::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  border-radius: 10%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.country:hover::after {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.radar-chart-svg {
+  display: block;
+  margin: auto;
+  z-index: 1;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*.country-circle {
+  display: block; 
+  width: 100%; 
+  padding-bottom: 100%; // Keeps aspect ratio of circle 
+  border-radius: 50%; // Make the circles round
+  background-size: cover; // Ensure the flag covers the circle
+  background-position: center; 
+  box-sizing: border-box; 0
+  border: 1px solid #ddd; 
+  cursor: default; //Change cursor to default
+}*/
+
+.country-name {
+  margin-left: 40px; 
+  font-size: 1em; 
+  color: #000; 
+  align-self: flex-start; /* Align the name to the top of the div */
+  line-height: 1.0; /* Adjust the line height to move the name further up */
+  text-align: left;
+}
+
+.country-checkbox {
+  position: absolute;
+  appearance: none;
+  top: 0; 
+  right: 0; 
+  margin: 5px;
+  z-index: 1; /* Ensure it's positioned above the country-circle */
+  width: 13px; 
+  height: 13px; 
+  border: 1px solid #000; 
+  border-radius: 50%; /* Make it circular */
+  outline: none; 
+}
+
+.country-checkbox:checked {
+  background-color: #04339c; 
+  box-shadow: inset 0 0 0 2px #fff; 
+}
+
+.country-checkbox:hover {
+  cursor: pointer; 
+}
+
+#eu-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px; 
+  height: auto; 
+}
+
+#tooltip {
+  position: absolute;
+  text-align: left;
+  font-size: 0.7em;
+  background: rgb(255, 255, 255);
+  border: 1px solid #ddd;
+  pointer-events: none; /* Ignore pointer events */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s;
+  border-radius: 4px;
+  z-index: 20; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.radar-area {
+  fill: #6D6E71; 
+  fill-opacity: 0.2; 
+  stroke: #102542; 
+  stroke-width: 1px;
+}
+
+.grid-circle {
+  stroke-width: 1px;
+  stroke: #616161;
+  fill: none;
+  stroke-opacity: 0.5;
+}
+
+.axis {
+  stroke-width: 1px;
+  stroke: #616161;
+  fill: none;
+  stroke-opacity: 0.5;
+}
+
+.axis-label {
+  font-size: 0.8em;
+  stroke: none;
+}
+
+/* .main-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+/* .left-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  width: 30%;
+  height: 100%;
+} */
+
+.text-box {
+  display: flex; 
+  flex-wrap: nowrap; 
+  justify-content: space-around; 
+  align-items: flex-start;
+  padding-left: 90px; 
+}
+
+.text-paragraph {
+  flex: 1;
+  margin: 0 5px; /* Margin on the left and right of each paragraph */
+  font-size: 0.8em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#filter-box {
+  width:100%;
+  height: 530px; 
+  margin: 20px 0px 20px 0;
+  background-color: #f2f2f2; 
+  border: 1px solid #04339c; 
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for aesthetics */
+  display: flex;
+  flex-direction: column;
+}
+
+#weight-box {
+  width:100%;
+  height: 320px; 
+  margin: 200px 0px 20px 0;
+  background-color: #f2f2f2; 
+  border: 1px solid #04339c; 
+  border-radius: 5px; 
+  padding: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.filter-icon {
+  width: 12px; 
+  height: 12px; 
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.info-icon {
+  width: 20px; 
+  height: 20px; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+}
+
+.info-icon .tooltip-text {
+  visibility: hidden;
+  width: 180px;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 2;
+  top: -5px;
+  right: 105%;
+  font-size: 0.8em;
+  text-align: justify;
+  padding: 10px;
+}
+
+#Health {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.info-icon:hover .tooltip-text {
+  visibility: visible;
+}
+
+.filter-text {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.filter-title {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+@keyframes spreadFlags {
+  from {
+    transform: translate(-100%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.range-slider {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+#slider-track-salary {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#slider-track-rent {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#slider-track-rent-outside {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px; /* Match the height of the track */
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none; /* Disable pointer events on the slider background */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px; 
+  height: 20px; 
+  background: #04339c;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  pointer-events: all; /* Enable pointer events on the slider thumb */
+  border-radius: 0; /* Make it a bar shape */
+}
+
+.slider::-moz-range-thumb {
+  background: #04339c;
+  cursor: pointer;
+  pointer-events: all;
+  border-radius: 0; 
+}
+
+.salary-range-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.salary-input {
+    width: 60px; 
+    padding: 5px;
+    margin: 0 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.grey-filter {
+  filter: grayscale(100%);
+}
+
+/*.apply-filter-button {
+  padding: 10px 20px;
+  margin-top: 5px;
+  background-color: #04339c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center; 
+}
+
+.apply-filter-button:hover {
+  background-color: #032a70;
+}*/
+
+.reset-filter-button {
+  padding: 10px 20px;
+  margin-top: 5px;
+  color: #04339c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center; 
+}
+
+.reset-filter-button:hover {
+  color: #032a70;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.grid-scale {
+  fill: #616161; 
+  font-size: 0.65em;
+}
+
+/* Style for the SVG container */
+.svg-container:not(.user-select-none) {
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed position to cover the whole screen */
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5); 
+	z-index: 10; /* Higher than other content */
+	justify-content: center;
+	align-items: end;
+}
+
+/* Ensure popup is scrollable */
+.svg-content {
+  overflow-y: auto; /* or 'scroll' depending on your needs */
+  /* max-height: 90vh;  Adjust based on your design */
+  position: fixed; /* or 'absolute', centered via CSS */
+  z-index: 100; /* Ensure it's above other content */
+  width: 96%; 
+	height: 96%; 
+	background: rgb(246, 251, 255); /* For visibility */
+	border-radius: 15px 0px; /* Optional: for styled corners */
+	padding: 20px;
+}
+
+/* 
+ * Stop the main page from scrolling when popup is open
+ */
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: fixed; /* Prevent scrolling without hiding the scrollbar */
+}
+
+.close-svg-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: none;
+	background: none;
+	color: rgb(0, 0, 0); 
+	cursor: pointer;
+	font-size: 1.5em; 
+}
+
+.jobs-title {
+  margin-top: 0.2em;
+  font-size: 1.2em;
+  font-family: Montserrat;
+  text-align: center;
+  color: #2d7dfe;
+}
+
+.weights-slider-container {
+  padding: 10px;
+}
+
+.indicator {
+  font-weight: bold;
+}
+
+.indicator label {
+  display: flex;
+  font-size: 0.8em;
+  margin-bottom: 5px;
+}
+
+.segmented-bar {
+  display: flex;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.bar-segment {
+  flex: 1;
+  border-right: 3px solid #ddd; /* Add a black border to the right of each segment */
+  height: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.bar-segment:last-child {
+  border-right: none; /* Remove the border from the last segment */
+}
+
+#compare-btn {
+  background-color: #04339c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center; 
+}
+
+#compare-btn:hover {
+  background-color: #032a70;
+}
+
+.winner::after {
+  border: 2px solid gold;
+}
+
+.winner-image {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+}
+
+.horizontal-divider {
+  border: 0;
+  height: 3px;
+  background-image: linear-gradient(to right, #fff, #04339c, #fff);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#tooltip {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #333;
+  /* ... other styles ... */
+}
+
+
+/**
+ * Floating Action Button
+ */
+
+ .fab-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.fab-button {
+  background-color: #126ee2;
+  border-radius: 50px;
+  width: 140px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.4s ease, border-radius 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.fab-icon {
+  font-size: 24px;
+  color: white;
+  transition: transform 0.4s ease;
+}
+
+.fab-text {
+  position: relative;
+  white-space: nowrap;
+  color: white;
+  font-size: 18px;
+  /* left: 100%; */
+  margin-left: 10px;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  opacity: 1;
+}
+
+.fab-toggle:checked + .fab-button {
+  width: 56px; /* Adjust based on the length of the text */
+  border-radius: 50%;
+}
+
+.fab-toggle:checked + .fab-button .fab-icon i {
+  transform: rotate(45deg);
+  display: none;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+
+.fab-toggle:not(:checked) + .fab-button .fab-text {
+  opacity: 1;
+  display: inline-block;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Delay hiding the text */
+}
+
+.fab-toggle:checked + .fab-button .fab-text {
+  opacity: 0;
+  display: hidden;
+  transform: translateX(-20px); /* Adjust based on visual preference */
+  transition: opacity 0.3s ease, visibility 0s linear 0s; /* Apply immediately when hiding */
+}
+
+/* Other styles remain unchanged */
+
+.plus-icon {
+  /* Initially, the plus icon is not displayed */
+  display: none;
+  opacity: 0; /* Ensure the icon is also hidden with opacity */
+  color: white;
+  transition: opacity 0.6s ease; /* Transition only for opacity */
+  /* Position it correctly in the FAB button */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Center the icon */
+  font-size: 24px; /* Set the icon size */
+}
+
+.fab-toggle:checked + .fab-button .plus-icon {
+  /* When checkbox is checked, make plus icon visible */
+  display: inline-block; /* Display the icon */
+  opacity: 1; /* Transition to full opacity */
+  transform: translate(-50%, -50%) scale(1); /* Scale up to normal size */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transition for both opacity and transform */
+}
+
+/* Ensure the plus icon rotates to a cross when the FAB is checked */
+.fab-toggle:checked + .fab-button .plus-icon i {
+  transform: rotate(45deg);
+  /* Add transition for rotation effect */
+  transition: transform 0.2s ease;
+}
+
+.unselectable {
+  -webkit-user-select: none;  /* Chrome, Safari, Opera */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* Internet Explorer/Edge */
+  user-select: none;          /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/**
+  * Sankey Compensation styles
+  */
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+    fill: none;
+    stroke-opacity: .4;
+}
+
+.link:hover {
+    stroke-opacity: .5;
+}
+
+/**
+  * Bottom Charts Nav Bar
+  */
+
+.border-opacity {
+  /* --tw-border-opacity: 0.2; */
+  border-color: rgba(191, 219, 254, 0.5);
+}

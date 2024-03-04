@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20232.23.0909.1159                               -->
+<workbook original-version='18.1' source-build='2023.2.2 (20232.23.0909.1159)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='tree_map' inline='true' name='federated.0qg5h501dd3tis110pckl1mexdlk' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tree_map' name='textscan.1memfjg007nq1612lpavh0otlrzo'>
+            <connection class='textscan' directory='d:/usuario/Daniel/Documentos/CS/3A/BDMA/Visual Analytics/numbeo_dataset' filename='tree_map.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1memfjg007nq1612lpavh0otlrzo' name='tree_map.csv' table='[tree_map#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+            <column datatype='string' name='category' ordinal='0' />
+            <column datatype='string' name='estimate' ordinal='1' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.1memfjg007nq1612lpavh0otlrzo' name='tree_map.csv' table='[tree_map#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+            <column datatype='string' name='category' ordinal='0' />
+            <column datatype='string' name='estimate' ordinal='1' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[tree_map.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;R$&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[tree_map.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[tree_map.csv_D87E376662764B2ABEE4B7B6B5FB99E4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>estimate</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[estimate]</local-name>
+            <parent-name>[tree_map.csv]</parent-name>
+            <remote-alias>estimate</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[tree_map.csv_D87E376662764B2ABEE4B7B6B5FB99E4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Category1' datatype='string' name='[Calculation_2176646009977720832]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Rent&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Monthly amount' datatype='real' name='[Calculation_947444786613432320]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ISNULL(FLOAT([estimate]))&#13;&#10;THEN 0&#13;&#10;ELSE FLOAT([estimate])&#13;&#10;END' />
+      </column>
+      <column caption='Zero' datatype='integer' name='[Calculation_947444786620948487]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='0' />
+      </column>
+      <column caption='Amount3' datatype='real' name='[Calculation_947444786623930377 1 1]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 180&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 200&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount4' datatype='real' name='[Calculation_947444786623930377 1 2]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 90&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 180&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount5' datatype='real' name='[Calculation_947444786623930377 1 3]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 70&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 100&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount6' datatype='real' name='[Calculation_947444786623930377 1 4]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 60&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 70&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount7' datatype='real' name='[Calculation_947444786623930377 1 5]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 50&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 60&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount8' datatype='real' name='[Calculation_947444786623930377 1 6]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 35&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 50&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount9' datatype='real' name='[Calculation_947444786623930377 1 7]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &lt; 40&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount2' datatype='real' name='[Calculation_947444786623930377 1]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 200&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 1000&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Amount1' datatype='real' name='[Calculation_947444786623930377]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 1000&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category9' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Clothing&apos;&#13;&#10;THEN &apos;Cloth&apos;&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category8' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Going out&apos;&#13;&#10;THEN &apos;Going &#13;&#10;out&apos;&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category7' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Transportation&apos;&#13;&#10;THEN &apos;Trans&#13;&#10;port&apos;&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category6' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Leisure&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category5' datatype='string' name='[Category1 (copy) (copy) (copy) (copy)_2176646009978335236]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Others&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category4' datatype='string' name='[Category1 (copy) (copy) (copy)_2176646009978322947]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Restaurants&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category3' datatype='string' name='[Category1 (copy) (copy)_2176646009978290178]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Utilities&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+      </column>
+      <column caption='Category2' datatype='string' name='[Category1 (copy)_2176646009978261505]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF STR([category]) == &apos;Meal at Home&apos;&#13;&#10;THEN &apos;Meal&#13;&#10;at home&apos;&#13;&#10;ELSE null END' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='tree_map.csv' datatype='table' name='[__tableau_internal_object_id__].[tree_map.csv_D87E376662764B2ABEE4B7B6B5FB99E4]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='Estimate' datatype='string' name='[estimate]' role='dimension' type='nominal' />
+      <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:category:nk]' palette='winter_10_0' type='palette'>
+            <map to='#6b6b6b'>
+              <bucket>&quot;Restaurants&quot;</bucket>
+            </map>
+            <map to='#90728f'>
+              <bucket>&quot;Clothing&quot;</bucket>
+            </map>
+            <map to='#9d9b3d'>
+              <bucket>&quot;Leisure&quot;</bucket>
+            </map>
+            <map to='#aa8780'>
+              <bucket>&quot;Utilities&quot;</bucket>
+            </map>
+            <map to='#b9a0b4'>
+              <bucket>&quot;Going out&quot;</bucket>
+            </map>
+            <map to='#bab2ae'>
+              <bucket>&quot;Transportation&quot;</bucket>
+            </map>
+            <map to='#cecb76'>
+              <bucket>&quot;Meal at Home&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Others&quot;</bucket>
+            </map>
+            <map to='#ff9888'>
+              <bucket>&quot;Rent&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Brazil&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='category' />
+        <field-sort-custom-order field='Calculation_2176646009977720832' />
+        <field-sort-custom-order field='Category1 (copy)_2176646009978261505' />
+        <field-sort-custom-order field='Category1 (copy) (copy)_2176646009978290178' />
+        <field-sort-custom-order field='Category1 (copy) (copy) (copy)_2176646009978322947' />
+        <field-sort-custom-order field='Category1 (copy) (copy) (copy) (copy)_2176646009978335236' />
+        <field-sort-custom-order field='Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429' />
+        <field-sort-custom-order field='Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622' />
+        <field-sort-custom-order field='Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911' />
+        <field-sort-custom-order field='Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104' />
+        <field-sort-custom-order field='estimate' />
+        <field-sort-custom-order field='Calculation_947444786613432320' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='tree_map.csv' id='tree_map.csv_D87E376662764B2ABEE4B7B6B5FB99E4'>
+            <properties context=''>
+              <relation connection='textscan.1memfjg007nq1612lpavh0otlrzo' name='tree_map.csv' table='[tree_map#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+                  <column datatype='string' name='category' ordinal='0' />
+                  <column datatype='string' name='estimate' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Average monthly cost in an European capital'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Noto Sans'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='tree_map' name='federated.0qg5h501dd3tis110pckl1mexdlk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qg5h501dd3tis110pckl1mexdlk'>
+            <column caption='Category1' datatype='string' name='[Calculation_2176646009977720832]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Rent&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Monthly amount' datatype='real' name='[Calculation_947444786613432320]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ISNULL(FLOAT([estimate]))&#13;&#10;THEN 0&#13;&#10;ELSE FLOAT([estimate])&#13;&#10;END' />
+            </column>
+            <column caption='Amount3' datatype='real' name='[Calculation_947444786623930377 1 1]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 180&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 200&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount4' datatype='real' name='[Calculation_947444786623930377 1 2]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 90&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 180&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount5' datatype='real' name='[Calculation_947444786623930377 1 3]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 70&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 100&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount6' datatype='real' name='[Calculation_947444786623930377 1 4]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 60&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 70&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount7' datatype='real' name='[Calculation_947444786623930377 1 5]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 50&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 60&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount8' datatype='real' name='[Calculation_947444786623930377 1 6]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 35&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 50&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount9' datatype='real' name='[Calculation_947444786623930377 1 7]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &lt; 40&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount2' datatype='real' name='[Calculation_947444786623930377 1]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 200&#13;&#10;AND SUM([Calculation_947444786613432320]) &lt; 1000&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Amount1' datatype='real' name='[Calculation_947444786623930377]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF SUM([Calculation_947444786613432320]) &gt; 1000&#13;&#10;THEN SUM([Calculation_947444786613432320])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category9' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Clothing&apos;&#13;&#10;THEN &apos;Cloth&apos;&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category8' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Going out&apos;&#13;&#10;THEN &apos;Going &#13;&#10;out&apos;&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category7' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Transportation&apos;&#13;&#10;THEN &apos;Trans&#13;&#10;port&apos;&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category6' datatype='string' name='[Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Leisure&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category5' datatype='string' name='[Category1 (copy) (copy) (copy) (copy)_2176646009978335236]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Others&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category4' datatype='string' name='[Category1 (copy) (copy) (copy)_2176646009978322947]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Restaurants&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category3' datatype='string' name='[Category1 (copy) (copy)_2176646009978290178]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Utilities&apos;&#13;&#10;THEN STR([category])&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category2' datatype='string' name='[Category1 (copy)_2176646009978261505]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF STR([category]) == &apos;Meal at Home&apos;&#13;&#10;THEN &apos;Meal&#13;&#10;at home&apos;&#13;&#10;ELSE null END' />
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='Estimate' datatype='string' name='[estimate]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2176646009977720832]' derivation='None' name='[none:Calculation_2176646009977720832:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104]' derivation='None' name='[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911]' derivation='None' name='[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622]' derivation='None' name='[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429]' derivation='None' name='[none:Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy) (copy) (copy)_2176646009978335236]' derivation='None' name='[none:Category1 (copy) (copy) (copy) (copy)_2176646009978335236:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy) (copy)_2176646009978322947]' derivation='None' name='[none:Category1 (copy) (copy) (copy)_2176646009978322947:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy) (copy)_2176646009978290178]' derivation='None' name='[none:Category1 (copy) (copy)_2176646009978290178:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category1 (copy)_2176646009978261505]' derivation='None' name='[none:Category1 (copy)_2176646009978261505:nk]' pivot='key' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_947444786613432320]' derivation='Sum' name='[sum:Calculation_947444786613432320:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 1]' derivation='User' name='[usr:Calculation_947444786623930377 1 1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 2]' derivation='User' name='[usr:Calculation_947444786623930377 1 2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 3]' derivation='User' name='[usr:Calculation_947444786623930377 1 3:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 4]' derivation='User' name='[usr:Calculation_947444786623930377 1 4:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 5]' derivation='User' name='[usr:Calculation_947444786623930377 1 5:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 6]' derivation='User' name='[usr:Calculation_947444786623930377 1 6:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1 7]' derivation='User' name='[usr:Calculation_947444786623930377 1 7:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377 1]' derivation='User' name='[usr:Calculation_947444786623930377 1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_947444786623930377]' derivation='User' name='[usr:Calculation_947444786623930377:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[sum:Calculation_947444786613432320:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='font-size' data-class='subtotal' value='9' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 1:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 2:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 3:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 4:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 5:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 6:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+            <format attr='text-format' field='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 7:qk]' value='c#,##0&quot; €&quot;;-#,##0&quot; €&quot;' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:category:nk]' />
+              <size column='[federated.0qg5h501dd3tis110pckl1mexdlk].[sum:Calculation_947444786613432320:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 1:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 2:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 3:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 4:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 5:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 6:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 7:qk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Calculation_2176646009977720832:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy)_2176646009978261505:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy)_2176646009978290178:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy)_2176646009978322947:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy)_2176646009978335236:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911:nk]' />
+              <text column='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontname='Noto Sans' fontsize='48'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Calculation_2176646009977720832:nk]>]]></run>
+                <run fontname='Noto Sans' fontsize='24'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy)_2176646009978261505:nk]>]]></run>
+                <run fontname='Noto Sans' fontsize='16'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy)_2176646009978290178:nk]>]]></run>
+                <run fontname='Noto Sans' fontsize='14'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy)_2176646009978322947:nk]>]]></run>
+                <run fontname='Noto Sans'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy)_2176646009978335236:nk]><[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429:nk]><[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622:nk]>]]></run>
+                <run fontname='Noto Sans' fontsize='8'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911:nk]><[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontname='Noto Sans' fontsize='28'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377:qk]>]]></run>
+                <run fontname='Noto Sans' fontsize='16'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1:qk]>]]></run>
+                <run fontname='Noto Sans' fontsize='12'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 1:qk]>]]></run>
+                <run fontname='Noto Sans' fontsize='10'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 2:qk]>]]></run>
+                <run fontname='Noto Sans'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 3:qk]><[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 4:qk]>]]></run>
+                <run fontname='Noto Sans' fontsize='8'><![CDATA[<[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 5:qk]><[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 6:qk]><[federated.0qg5h501dd3tis110pckl1mexdlk].[usr:Calculation_947444786623930377 1 7:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='left' />
+                <format attr='vertical-align' value='top' />
+                <format attr='wrap' value='off' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{F01BAEA4-4766-4A9D-B597-F893D74F2E5D}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
+    <window class='worksheet' maximized='true' name='Average monthly cost in an European capital'>
+      <cards>
+        <edge name='left'>
+          <strip size='240'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='48'>
+            <card type='columns' />
+          </strip>
+          <strip size='48'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='240'>
+            <card pane-specification-id='0' param='[federated.0qg5h501dd3tis110pckl1mexdlk].[none:category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Calculation_2176646009977720832:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978372104:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978363911:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy) (copy)_2176646009978351622:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy) (copy)_2176646009978343429:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy) (copy)_2176646009978335236:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy) (copy)_2176646009978322947:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy) (copy)_2176646009978290178:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:Category1 (copy)_2176646009978261505:nk]</field>
+            <field>[federated.0qg5h501dd3tis110pckl1mexdlk].[none:category:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6B6F43EC-2AFE-4EFF-B390-6958A9D35DEA}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Average monthly cost in an European capital' width='192'>
+      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
+      QmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

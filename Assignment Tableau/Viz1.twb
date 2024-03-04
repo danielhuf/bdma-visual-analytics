@@ -1,0 +1,722 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20232.23.0909.1159                               -->
+<workbook original-version='18.1' source-build='2023.2.2 (20232.23.0909.1159)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='cost_estimator' inline='true' name='federated.041426l1qhxjw11fvpvbo1e331mq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cost_estimator' name='textscan.0awoknh08z4g9m1aw37kb03cjf5p'>
+            <connection class='textscan' directory='d:/usuario/Daniel/Documentos/CS/3A/BDMA/Visual Analytics/numbeo_dataset' filename='cost_estimator.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0awoknh08z4g9m1aw37kb03cjf5p' name='cost_estimator.csv' table='[cost_estimator#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+            <column datatype='string' name='city' ordinal='0' />
+            <column datatype='string' name='currency' ordinal='1' />
+            <column datatype='integer' name='city_id' ordinal='2' />
+            <column datatype='string' name='category' ordinal='3' />
+            <column datatype='string' name='estimate' ordinal='4' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.0awoknh08z4g9m1aw37kb03cjf5p' name='cost_estimator.csv' table='[cost_estimator#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+            <column datatype='string' name='city' ordinal='0' />
+            <column datatype='string' name='currency' ordinal='1' />
+            <column datatype='integer' name='city_id' ordinal='2' />
+            <column datatype='string' name='category' ordinal='3' />
+            <column datatype='string' name='estimate' ordinal='4' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;R$&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>currency</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[currency]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>currency</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[city_id]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>city_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>estimate</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[estimate]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>estimate</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Zero' datatype='integer' name='[Calculation_1965539777070084096]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='0' />
+      </column>
+      <column caption='EstimateDecimal' datatype='real' name='[Calculation_1965539777088856066]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ISNULL(FLOAT([estimate]))&#13;&#10;THEN 0&#13;&#10;ELSE FLOAT([estimate])&#13;&#10;END' />
+      </column>
+      <column caption='EstimateFormatted' datatype='string' name='[Calculation_1965539777092460547]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='STR(ROUND(ATTR([Calculation_1965539777088856066]),2)) + &apos; €&apos;' />
+      </column>
+      <column datatype='real' default-format='p0.00%' name='[Cálculo1]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1965539777088856066]) / TOTAL(SUM([Calculation_1965539777088856066]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='cost_estimator.csv' datatype='table' name='[__tableau_internal_object_id__].[cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City Id' datatype='integer' name='[city_id]' role='dimension' type='ordinal' />
+      <column caption='Currency' datatype='string' name='[currency]' role='dimension' type='nominal' />
+      <column aggregation='CountD' caption='Estimate' datatype='string' name='[estimate]' role='dimension' type='nominal' />
+      <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:category:nk]' palette='winter_10_0' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Clothing and Shoes&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Leisure and Sport Memberships&quot;</bucket>
+            </map>
+            <map to='#6b6b6b'>
+              <bucket>&quot;Restaurants&quot;</bucket>
+            </map>
+            <map to='#90728f'>
+              <bucket>&quot;Clothing&quot;</bucket>
+            </map>
+            <map to='#9d9b3d'>
+              <bucket>&quot;Leisure&quot;</bucket>
+            </map>
+            <map to='#aa8780'>
+              <bucket>&quot;Utilities&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Public Transport and Taxi&quot;</bucket>
+            </map>
+            <map to='#b9a0b4'>
+              <bucket>&quot;Going out&quot;</bucket>
+            </map>
+            <map to='#bab2ae'>
+              <bucket>&quot;Transportation&quot;</bucket>
+            </map>
+            <map to='#cecb76'>
+              <bucket>&quot;Meal at Home&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Food at Home&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Others&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Other Goods and Services&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Drinks at Home&quot;</bucket>
+            </map>
+            <map to='#ff9888'>
+              <bucket>&quot;Rent&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Brasil&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='cost_estimator.csv' id='cost_estimator.csv_58CA0C39C532404CA1C4E74FBDE30A07'>
+            <properties context=''>
+              <relation connection='textscan.0awoknh08z4g9m1aw37kb03cjf5p' name='cost_estimator.csv' table='[cost_estimator#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+                  <column datatype='string' name='city' ordinal='0' />
+                  <column datatype='string' name='currency' ordinal='1' />
+                  <column datatype='integer' name='city_id' ordinal='2' />
+                  <column datatype='string' name='category' ordinal='3' />
+                  <column datatype='string' name='estimate' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+    <datasource caption='cost_estimator (2)' inline='true' name='federated.0jdl5h409xqdad18y7y9t0znd6ql' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cost_estimator' name='textscan.08ehwf701a8ylh1ei4yit0fr6o8k'>
+            <connection class='textscan' directory='d:/usuario/Daniel/Documentos/CS/3A/BDMA/Visual Analytics/numbeo_dataset' filename='cost_estimator.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.08ehwf701a8ylh1ei4yit0fr6o8k' name='cost_estimator.csv' table='[cost_estimator#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+            <column datatype='string' name='city' ordinal='0' />
+            <column datatype='string' name='currency' ordinal='1' />
+            <column datatype='integer' name='city_id' ordinal='2' />
+            <column datatype='string' name='category' ordinal='3' />
+            <column datatype='string' name='estimate' ordinal='4' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.08ehwf701a8ylh1ei4yit0fr6o8k' name='cost_estimator.csv' table='[cost_estimator#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+            <column datatype='string' name='city' ordinal='0' />
+            <column datatype='string' name='currency' ordinal='1' />
+            <column datatype='integer' name='city_id' ordinal='2' />
+            <column datatype='string' name='category' ordinal='3' />
+            <column datatype='string' name='estimate' ordinal='4' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;R$&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>currency</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[currency]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>currency</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[city_id]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>city_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>estimate</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[estimate]</local-name>
+            <parent-name>[cost_estimator.csv]</parent-name>
+            <remote-alias>estimate</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <_.fcp.ObjectModelTableType.true...column caption='cost_estimator.csv' datatype='table' name='[__tableau_internal_object_id__].[cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City Id' datatype='integer' name='[city_id]' role='dimension' type='ordinal' />
+      <column caption='Currency' datatype='string' name='[currency]' role='dimension' type='nominal' />
+      <column caption='Estimate' datatype='string' name='[estimate]' role='dimension' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' rowDisplayCount='300' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Brasil&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='cost_estimator.csv' id='cost_estimator.csv_EC0CE851DFCD47FAA014E2197C1C2BD3'>
+            <properties context=''>
+              <relation connection='textscan.08ehwf701a8ylh1ei4yit0fr6o8k' name='cost_estimator.csv' table='[cost_estimator#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='pt_BR'>
+                  <column datatype='string' name='city' ordinal='0' />
+                  <column datatype='string' name='currency' ordinal='1' />
+                  <column datatype='integer' name='city_id' ordinal='2' />
+                  <column datatype='string' name='category' ordinal='3' />
+                  <column datatype='string' name='estimate' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Cost Estimator'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontname='Noto Sans'>Monthly Cost Estimator (Madrid 2023)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cost_estimator' name='federated.041426l1qhxjw11fvpvbo1e331mq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.041426l1qhxjw11fvpvbo1e331mq'>
+            <column caption='Zero' datatype='integer' name='[Calculation_1965539777070084096]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='0' />
+            </column>
+            <column caption='EstimateDecimal' datatype='real' name='[Calculation_1965539777088856066]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ISNULL(FLOAT([estimate]))&#13;&#10;THEN 0&#13;&#10;ELSE FLOAT([estimate])&#13;&#10;END' />
+            </column>
+            <column caption='EstimateFormatted' datatype='string' name='[Calculation_1965539777092460547]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='STR(ROUND(ATTR([Calculation_1965539777088856066]),2)) + &apos; €&apos;' />
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column aggregation='CountD' caption='Estimate' datatype='string' name='[estimate]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1965539777088856066]' derivation='Sum' name='[pcto:sum:Calculation_1965539777088856066:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Calculation_1965539777070084096]' derivation='Sum' name='[sum:Calculation_1965539777070084096:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1965539777088856066]' derivation='Sum' name='[sum:Calculation_1965539777088856066:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1965539777092460547]' derivation='User' name='[usr:Calculation_1965539777092460547:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.041426l1qhxjw11fvpvbo1e331mq].[none:city:nk]'>
+            <groupfilter function='member' level='[none:city:nk]' member='&quot;Madrid&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='1' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+            <format attr='display' class='0' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk]' scope='rows' value='false' />
+            <format attr='display' class='1' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk]' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' data-class='subtotal' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' value='' />
+            <format attr='text-format' data-class='total' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' value='' />
+            <format attr='text-format' data-class='subtotal' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[pcto:sum:Calculation_1965539777088856066:qk]' value='' />
+            <format attr='text-format' data-class='total' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[pcto:sum:Calculation_1965539777088856066:qk]' value='' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[none:city:nk]' value='false' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' value='true' />
+            <format attr='break-on-special' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' value='true' />
+            <format attr='show-null-value-warning' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' value='true' />
+            <format attr='omit-on-special' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[pcto:sum:Calculation_1965539777088856066:qk]' value='true' />
+            <format attr='break-on-special' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[pcto:sum:Calculation_1965539777088856066:qk]' value='true' />
+            <format attr='show-null-value-warning' field='[federated.041426l1qhxjw11fvpvbo1e331mq].[pcto:sum:Calculation_1965539777088856066:qk]' value='true' />
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <wedge-size column='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='5.0694117546081543' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.041426l1qhxjw11fvpvbo1e331mq].[none:category:nk]' />
+              <wedge-size column='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' />
+              <text column='[federated.041426l1qhxjw11fvpvbo1e331mq].[none:category:nk]' />
+              <text column='[federated.041426l1qhxjw11fvpvbo1e331mq].[usr:Calculation_1965539777092460547:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#000000'><![CDATA[<[federated.041426l1qhxjw11fvpvbo1e331mq].[none:category:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#000000'><![CDATA[<[federated.041426l1qhxjw11fvpvbo1e331mq].[usr:Calculation_1965539777092460547:nk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='font-size' value='10' />
+                <format attr='font-family' value='Noto Sans' />
+                <format attr='font-weight' value='normal' />
+                <format attr='color' value='#ffffff' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='6.9928369522094727' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <wedge-size column='[federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777088856066:qk]' />
+              <text column='[federated.041426l1qhxjw11fvpvbo1e331mq].[pcto:sum:Calculation_1965539777088856066:qk]' />
+              <lod column='[federated.041426l1qhxjw11fvpvbo1e331mq].[none:category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='font-weight' value='bold' />
+                <format attr='font-size' value='9' />
+                <format attr='color' value='#ffffff' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='5.5472970008850098' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#ffffff' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk] + [federated.041426l1qhxjw11fvpvbo1e331mq].[sum:Calculation_1965539777070084096:qk])</rows>
+        <cols>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:city:nk]</cols>
+      </table>
+      <simple-id uuid='{228EF29A-663A-4CE2-B772-4BC3C0A92E07}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.5' source-height='75'>
+    <window class='worksheet' maximized='true' name='Cost Estimator'>
+      <cards>
+        <edge name='left'>
+          <strip size='174'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.041426l1qhxjw11fvpvbo1e331mq].[ctd:estimate:ok]</field>
+            <field>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:Calculation_1965539777092460547:nk]</field>
+            <field>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:Calculation_1965539777096708101:qk]</field>
+            <field>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:category:nk]</field>
+            <field>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:city:nk]</field>
+            <field>[federated.041426l1qhxjw11fvpvbo1e331mq].[none:estimate:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{85E93E89-F026-4642-8AA6-17B50E948486}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Cost Estimator' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
